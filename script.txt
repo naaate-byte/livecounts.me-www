@@ -1,0 +1,45 @@
+ //  "apiKey":"API-_key-m9ZOGmqrhKMd2I58GH51phfN2yxTNWJSx4y-zSH2J","secretKey":"xKdLkOTmDLnypb1T6xBJ8Qmh2-iMaT76qnCvpCXJv34Ka1"            
+
+	        if(URL[1] == "youtube") {
+                    json_url = 'https://api.livecounts.me/estimations/youtube/stats/'+$('#rawUser').text()+"?akey=API-_key-m9ZOGmqrhKMd2I58GH51phfN2yxTNWJSx4y-zSH2J&skey=xKdLkOTmDLnypb1T6xBJ8Qmh2-iMaT76qnCvpCXJv34Ka1"; // replace "UCbCmjCuTUZos6Inko4u57UQ" with any channel id! OR none for fakecounts!
+                } else if(URL[1] == "twitch") {
+                    json_url = "https://bastet.socialblade.com/twitch/lookup?query="+$('#rawUser').text();
+                } else if(URL[1] == "instagram") {
+                    json_url = "https://bastet.socialblade.com/instagram/lookup?query="+$('#rawUser').text();
+                } else if(URL[1] == "twitter") {
+                    json_url = "https://bastet.socialblade.com/twitter/lookup?query="+$('#rawUser').text();
+                } else if(URL[1] == "dailymotion") {
+                    json_url = "https://bastet.socialblade.com/dailymotion/lookup?query="+$('#rawUser').text();
+                } else if(URL[1] == "mixer") {
+                    json_url = "https://bastet.socialblade.com/mixer/lookup?query="+$('#rawUser').text();
+                } else if(URL[1] == "dlive") {
+                    json_url = "https://bastet.socialblade.com/dlive/lookup?query="+$('#rawUser').text();
+                } else if(URL[1] == "storyfire") {
+                    json_url = "https://bastet.socialblade.com/storyfire/lookup?query="+$('#rawUser').text();
+                } else if(URL[1] == "trovo") {
+                    json_url = "https://bastet.socialblade.com/trovo/lookup?query="+$('#rawUser').text();
+                }
+                $.ajax({
+                    url: json_url,
+                    success: function(d) {
+                    	console.log(d);
+                    	var a = d;
+                      var ChannelEstParams = a.DataContents[a.DataContents.findIndex(e=>e.name=="ChannelEstParams")].value
+                    	var e =  ChannelEstParams.followerCount;
+                        // e=test;
+                        if(realtimeSettings.milestonesFreeze) milestoneChecker(e);
+
+                        if(realtimeSettings.casinoMode){ if($("#rawCount").text() < e) soundEffects.ding.play(); }
+                        if(realtimeSettings.casinoMode){ if($("#rawCount").text() > e) soundEffects.coin.play(); }
+
+                        $(".odometer").html(e);
+                        $("#rawCount").text(e);
+
+                        if ($('#realtime-live-chart').highcharts().series[0].points.length == maxPoints) $('#realtime-live-chart').highcharts().series[0].data[0].remove();
+                        $('#realtime-live-chart').highcharts().series[0].addPoint([x, e], true, false);
+                    }
+                });
+
+
+
+// to clear chart: $('#realtime-live-chart').highcharts().series[0].remove(true);$('#realtime-live-chart').highcharts().addSeries({name: 'subs',data: []});

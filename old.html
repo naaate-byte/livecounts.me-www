@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+    <link rel="manifest" href="https://livecounts.me/lcme.webmanifest">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src='https://livecounts.me/odometer.min.js'>
+
+    </script>
+        <!--
+    <script async src="https://arc.io/widget.min.js#yp9N3RYu"></script>
+-->
+    <style media="screen">
+    .parents {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: 1fr;
+      grid-column-gap: 0px;
+      grid-row-gap: 0px;
+      }
+    </style>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src='https://cdn.tutorialjinni.com/odometer.js/0.4.8/odometer.js'></script>
+    <link rel="stylesheet" href="https://livecounts.me/themes/odometer-theme-minimal.css">
+    <title>livecounts.me - The best site for estimated counters!</title>
+    <style>
+    nav {
+      background-image: linear-gradient(to top right, black, gray);
+    }
+    #livecountstextshadow {
+      text-shadow: 1px 1px #000000;
+    }
+    body {
+      height: auto;
+      width: auto;
+    }
+      #intro {
+        border-radius: 5px;
+        background-image: linear-gradient(to bottom right, white, black);
+      }
+      h3 {
+        text-shadow: 2px 2px #000;
+      }
+
+      li a {
+        display: block;
+        color: #000;
+        padding: 8px 16px;
+        text-decoration: none;
+      }
+
+      /* Change the link color on hover */
+      .parent {
+        display: inline-grid;
+        grid-template-columns: repeat(5, 2fr);
+        grid-template-rows: repeat(2, 2fr);
+        grid-column-gap: 0.2px;
+        grid-row-gap: 0.5px;
+        height:100;
+      }
+
+    </style>
+  </head>
+  <body>
+    <center>
+      <nav class="navbar navbar-light navbar-expand-md" id='grad'>
+          <div class="container-fluid"><img class='rounded-circle' src="https://livecounts.me/favicon.ico" size=25 width=35 height=35 /> <a class="navbar-brand" href="/index.html" style="color: rgba(255,255,255,0.9);padding-left:2%;" id="livecountstextshadow">Livecounts.me</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+              <div
+                  class="collapse navbar-collapse" id="navcol-1">
+                  <ul class="nav navbar-nav">
+
+                  </ul>
+          </div>
+          </div>
+      </nav>
+      <br>
+      <div class="card" id='card1' style="width: 80% !important;height:auto !important; border: solid #000000; border-radius: 20px;">
+          <div class="card-body">
+            <img class="rounded" id='cbannerimg' width=100% height=130></img>
+            <br>
+            <img class="rounded-circle" id='cimage' width=150 height=150 style='margin-top:-55px;'></img>
+            <h5 class="card-title" id='cname' style='font-size:55px;color:black;'>Loading...</h5>
+            <h2 class="odometer" id='counts'>000,000,000</h2>
+            <h2 style='color: #696969;'>Subscribers</h2>
+            </div>
+            <div class="card1" id="card2" style="height:auto; border: solid #000000; border-radius: 15px; width: 100%;">
+              <div class="card-body">
+                 <div id="chart" class="chart"></div>
+              </div>
+              </div>
+            </div>
+
+<br>
+
+            <div class="card2" id='card' style="width: 80% !important;height:auto !important; border: solid #000000; border-radius: 20px;">
+    <h3 style='bottom:50px;' id="obs">EMBED URL FOR OBS ONLY:</h3>
+    <br>
+    <div id='embed-url' style='bottom:50px;'></div>
+    <center>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#fc" style="font-size: 30px;">Customize</button>
+      </center>
+</div>
+<br>
+
+  <div class="modal fade" id="fc" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Counts</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          
+        </div>
+
+        <div class="modal-body">
+          <b>Change Theme</b>
+          <br>
+          <button onclick="darktheme()">Dark Theme</button>
+          <br>
+          <button onclick="lighttheme()">Light Theme</button>
+          <br>
+          <b>Custom Counts</b>
+          <div class="modal-body">
+                                      <div>
+                                        <input id="subs" placeholder="Starting Subs">
+                                        <br>
+                                        <input id="rate1" placeholder="Sub Gain (Min)">
+                                        <br>
+                                        <input id="rate2" placeholder="Sub Gain (Max)">
+                                        <br>
+                                        <input id="updatetime" placeholder="Update Time (In Seconds)">
+                                        <br>
+                                        <br>
+                                        <button onclick="start()" style="height: 40px; width: 70%; font-size: 20px;">Start</button>
+                                        <br>
+                                        <button onclick="stop()" style="height: 40px; width: 70%; font-size: 20px;">Stop</button>
+                                  </div>
+        </div>
+      </div>
+    </div>
+  </div>
+      </center>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <script src="https://code.highcharts.com/stock/highstock.js"></script>
+  <script type="text/javascript">
+var params = new URLSearchParams(document.location.search.substring(1));
+  var id = params.get("cid");
+  var lc = "#008000"
+var f;
+var g = 1;
+  function random(min, max) {
+        return Math.floor(Math.random() * (max - min) + min);
+    }
+
+function darktheme() {
+document.getElementById('counts').style.color = "#FFFFFF"
+document.getElementById('cname').style.color = "#FFFFFF"
+document.getElementById('card').style.borderColor = "#FFFFFF"
+document.getElementById('card1').style.borderColor = "#FFFFFF"
+document.getElementById('card2').style.borderColor = "#FFFFFF"
+document.getElementById('obs').style.color = "#FFFFFF"
+document.getElementById('card').style.backgroundColor = "#222222"
+document.getElementById('card1').style.backgroundColor = "#222222"
+document.getElementById('card2').style.backgroundColor = "#222222"
+document.body.style.backgroundColor = "#333333";
+}
+function lighttheme() {
+  document.getElementById('counts').style.color = "#000000"
+document.getElementById('cname').style.color = "#000000"
+document.getElementById('card').style.borderColor = "#000000"
+document.getElementById('card1').style.borderColor = "#000000"
+document.getElementById('card2').style.borderColor = "#000000"
+document.getElementById('obs').style.color = "#000000"
+document.getElementById('card').style.backgroundColor = "#FFFFFF"
+document.getElementById('card1').style.backgroundColor = "#FFFFFF"
+document.getElementById('card2').style.backgroundColor = "#FFFFFF"
+document.body.style.backgroundColor = "#FFFFFF";
+}
+
+  function start() {
+    clearInterval(e)
+var g = parseFloat(document.getElementById('updatetime').value)*1000
+    f = setInterval(fake,g)
+    counts.innerHTML = parseFloat(document.getElementById('subs').value);
+  }
+function stop() {
+e = setInterval(getYTStats, 3000)
+clearInterval(f)
+}
+
+function fake() {
+  var newsubs = 0
+  var current = parseFloat(document.getElementById('subs').value);
+var min = parseFloat(document.getElementById('rate1').value);
+var max = parseFloat(document.getElementById('rate2').value);
+ newsubs = current + random(min, max)
+document.getElementById('counts').innerHTML = newsubs
+document.getElementById('subs').value = newsubs
+if (chart.series[0].points.length == 1500) chart.series[0].data[0].remove();
+          chart.series[0].addPoint([Date.now(), Math.floor(newsubs)])
+}
+
+  var e = setInterval(getYTStats, 3000)
+  var cid = geturl();
+function geturl() {
+  if (location.href.split('/')[4].startsWith('UC')){
+return location.href.split('/')[4]
+  } else if (id == null) {
+    return "UC_TVqp_SyG6j5hG-xVRy95A"
+  } else {
+    return id
+  }
+}
+
+    async function getYTStats() {
+      let request = await fetch('https://api.livecounts.me/estimations/youtube/stats/'+cid+'?akey=1657567457&skey=6681084873', { mode: "cors" })
+      let data = await request.json().catch(() => {})
+      if (!data) return;
+      counts.innerHTML = data.DataContents[5].value.followerCount
+      cname.innerHTML = data.DataContents[1].value
+      document.getElementById('cbannerimg').src = data.DataContents[2].value
+      document.getElementById('cimage').src = data.DataContents[3].value
+
+      if (chart.series[0].points.length == 1500) chart.series[0].data[0].remove();
+          chart.series[0].addPoint([Date.now(), Math.floor(data.DataContents[5].value.followerCount)])
+ }
+
+  getYTStats()
+      $('#embed-url').html('<input type="text" size=45 value="https://livecounts.me/live-embeds-yt/'+cid+'" />');
+
+      var textBright = "#bdbdbd"
+    var lineColor = "#000000"
+    var maxPoints = 20000;
+    var chart = new Highcharts.chart({
+      chart: {
+          renderTo: 'chart',
+          type: 'spline',
+            zoomType: 'x',
+            backgroundColor: 'transparent',
+            plotBorderColor: 'transparent'
+      },
+      title: {
+          text: ' '
+      },
+      xAxis: {
+          type: 'datetime',
+          tickPixelInterval: 500,
+            gridLineColor: textBright,
+            labels: {
+                style: {
+                    color: textBright
+                }
+            },
+            lineColor: lineColor,
+            minorGridLineColor: '#bdbdbd',
+            tickColor: lineColor,
+            title: {
+                style: {
+                    color: textBright
+                }
+            }
+      },
+      yAxis: {
+          title: {
+              text: ''
+          },
+            gridLineColor: textBright,
+            labels: {
+                style: {
+                    color: textBright
+                }
+            },
+            lineColor: lineColor,
+            minorGridLineColor: '#bdbdbd',
+            tickColor: lineColor
+      },
+      credits: {
+          enabled: true,
+          text: "Livecounts.me"
+      },
+    
+      series: [{
+        showInLegend: false,
+         name: 'Subscribers',
+        marker: { enabled: false },
+        color: '#000000',
+        lineColor: lc
+      }]
+    });
+
+  </script>
+</body>
+</html>

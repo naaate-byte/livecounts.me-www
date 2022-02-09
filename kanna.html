@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>CV Stats</title>
+    <script async src="https://arc.io/widget.min.js#yp9N3RYu"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="./themes/odometer-theme-minimal.css">
+    <script type="text/javascript" src='./odometer.min.js'></script>
+  </head>
+  <body>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <center>
+
+      <h2 id='cases' class='odometer' style="font-weight:lighter;font-size:100px;color:white;">00,000,000</h1>
+    </center>
+
+  </body>
+  <script>
+  function getMin(gain) {
+    return -((gain / 86400)*5);
+  }
+  function getMax(gain) {
+    return (gain / 86400)*16;
+  }
+    var ccases = 0, timeThatHit, gain, duration;
+    window.onload = ()=>{
+    	var apiURL = 'https://top.gg/bot/867048396358549544';
+
+        $.ajax({
+    		url: 'https://api.allorigins.win/raw?url='+apiURL,
+    		type: "GET",
+    		success: function(data){
+			//var select = document.querySelector("#__next > div > div > div > div > article > section.entity-content__section.entity-sidebar > div.entity-sidebar__overview > div > div:nth-child(6)");
+    			var confirmed = parseInt($(data).find('div.entity-sidebar__overview')[0].childNodes[1].childNodes[5].innerHTML.toString().replace(/,/g, ""));
+			console.log(confirmed);
+          		updateGameCount(confirmed);
+    		},
+    		error: function(){}
+    	})
+    }
+    function rand(min, max) {
+      let randomNum = Math.random() * (max - min) + min;
+      return Math.floor(randomNum);
+    }
+
+    setInterval(function() {
+      var apiURL = 'https://top.gg/bot/867048396358549544';
+
+        $.ajax({
+    		url:'https://api.allorigins.win/raw?url='+ apiURL,
+    		type: "GET",
+    		success: function(data){
+			//var select = document.querySelector("#__next > div > div > div > div > article > section.entity-content__section.entity-sidebar > div.entity-sidebar__overview > div > div:nth-child(6)");
+    			var confirmed = parseInt($(data).find('div.entity-sidebar__overview')[0].childNodes[1].childNodes[5].innerHTML.toString().replace(/,/g, ""));
+			console.log(confirmed);
+          		updateGameCount(confirmed);
+    		},
+    		error: function(){}
+    	})
+    }, 5000)
+
+
+
+    function updateGameCount(count) {
+        $('.odometer').html(count);
+    }
+
+  </script>
+</html>

@@ -1,0 +1,114 @@
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <link rel="manifest" href="/lcme.webmanifest">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+    <script type="text/javascript" src='/odometer.min.js'>
+
+    </script>
+    <script async src="https://arc.io/widget.min.js#yp9N3RYu"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src='https://cdn.tutorialjinni.com/odometer.js/0.4.8/odometer.js'></script>
+    <link rel="stylesheet" href="/themes/odometer-theme-minimal.css">
+    <title>livecounts.me - The best site for estimated counters!</title>
+    <style>
+    .checkmark {
+    display:inline-block;
+    width: 22px;
+    height:22px;
+    -ms-transform: rotate(45deg); /* IE 9 */
+    -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+    transform: rotate(45deg);
+}
+
+.checkmark_circle {
+    position: absolute;
+    width:22px;
+    height:22px;
+    background-color: green;
+    border-radius:11px;
+    left:0;
+    top:0;
+}
+
+.checkmark_stem {
+    position: absolute;
+    width:3px;
+    height:9px;
+    background-color:#fff;
+    left:11px;
+    top:6px;
+}
+
+.checkmark_kick {
+    position: absolute;
+    width:3px;
+    height:3px;
+    background-color:#fff;
+    left:8px;
+    top:12px;
+}
+    body {
+      height: auto;
+      width: auto;
+    }
+      #intro {
+        border-radius: 5px;
+        background-image: linear-gradient(to bottom right, white, black);
+      }
+      h3 {
+        text-shadow: 2px 2px #000;
+      }
+
+      li a {
+        display: block;
+        color: #000;
+        padding: 8px 16px;
+        text-decoration: none;
+      }
+      #badges {
+        margin: auto;
+      }
+      /* Change the link color on hover */
+      .parent {
+        display: inline-grid;
+        grid-template-columns: repeat(5, 2fr);
+        grid-template-rows: repeat(2, 2fr);
+        grid-column-gap: 0.2px;
+        grid-row-gap: 0.5px;
+        height:100;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="background-color:white;">
+    <img class="rounded" id='cimage' style='float:left;margin-right: 10px;' width=87px height=87px></img>
+    <h5 class="card-title" id='cname'><h2 class='odometer' id='counts' style='font-size:35px;'>000,000,000</h2>
+    </h5>
+  </div>
+    <br>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <script src='/assets/mainembed.common.js'></script>
+  <script type="text/javascript">
+  function getUrlCID() {
+    return location.href.split('/')[4];
+  }
+  var cid = getUrlParameter('cid')||getUrlCID()||"verified";
+    if(getUrlParameter('mdm') == 1) {
+      $('head').append('<link rel="stylesheet" href="/themes/colored.css">');
+    }
+    if(cid != undefined) {
+      LivecountsME.startUser(cid, 'twitter');
+    }
+  </script>
+</body>
+</html>

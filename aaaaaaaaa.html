@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+    <link rel="manifest" href="/lcme.webmanifest">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src='/odometer.min.js'>
+
+    </script>
+    <script async src="https://arc.io/widget.min.js#yp9N3RYu"></script>
+
+    <style media="screen">
+    .parents {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: 1fr;
+      grid-column-gap: 0px;
+      grid-row-gap: 0px;
+      }
+    </style>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src='https://cdn.tutorialjinni.com/odometer.js/0.4.8/odometer.js'></script>
+    <link rel="stylesheet" href="/themes/odometer-theme-minimal.css">
+    <title>livecounts.me - The best site for estimated counters!</title>
+    <style>
+    nav {
+      background-image: linear-gradient(to top right, black, gray);
+    }
+    #livecountstextshadow {
+      text-shadow: 1px 1px #000000;
+    }
+    body {
+      height: auto;
+      width: auto;
+    }
+      #intro {
+        border-radius: 5px;
+        background-image: linear-gradient(to bottom right, white, black);
+      }
+      h3 {
+        text-shadow: 2px 2px #000;
+      }
+
+      li a {
+        display: block;
+        color: #000;
+        padding: 8px 16px;
+        text-decoration: none;
+      }
+
+      /* Change the link color on hover */
+      .parent {
+        display: inline-grid;
+        grid-template-columns: repeat(5, 2fr);
+        grid-template-rows: repeat(2, 2fr);
+        grid-column-gap: 0.2px;
+        grid-row-gap: 0.5px;
+        height:100;
+      }
+      #badges {
+        margin: auto;
+      }
+    .checkmark {
+    display:inline-block;
+    width: 22px;
+    height:22px;
+    -ms-transform: rotate(45deg); /* IE 9 */
+    -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+    transform: rotate(45deg);
+}
+
+.checkmark_circle {
+    position: absolute;
+    width:22px;
+    height:22px;
+    background-color: green;
+    border-radius:11px;
+    left:0;
+    top:0;
+}
+
+.checkmark_stem {
+    position: absolute;
+    width:3px;
+    height:9px;
+    background-color:#fff;
+    left:11px;
+    top:6px;
+}
+
+.checkmark_kick {
+    position: absolute;
+    width:3px;
+    height:3px;
+    background-color:#fff;
+    left:8px;
+    top:12px;
+}
+    </style>
+  </head>
+  <body>
+    <center>
+      <nav class="navbar navbar-light navbar-expand-md" id='grad'>
+          <div class="container-fluid"><img class='rounded-circle' src="/favicon.ico" size=25 width=35 height=35 /> <a class="navbar-brand" href="/index.html" style="color: rgba(255,255,255,0.9);padding-left:2%;" id="livecountstextshadow">Livecounts.me</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+              <div
+                  class="collapse navbar-collapse" id="navcol-1">
+                  <ul class="nav navbar-nav">
+
+                  </ul>
+          </div>
+          </div>
+      </nav>
+      <br>
+      <div class="card" id='stuff' style="width: auto !important;height:auto !important;">
+          <div class="card-body">
+            <img class="rounded-circle" id='logo' width=150 height=150 src="/img/yt.jpg"></img>
+            <br>
+            <h2>YouTube Counters</h2>
+            <br>
+            <h4>Search:</h4>
+            <br>
+            <input type="text" id="search" placeholder="PewDiePie or UCYISAw5AqkCOL9JGDEJg-kA" size=100/> <button id='onSearch' class="btn btn-primary">Search</button>
+        </div>
+      </div>
+      <br>
+      </center>
+      <br>
+      <br>
+      <center>
+      <h3 class="name">Promotions:</h3>
+      <p class="description">View our promoted YouTube channels/Twitter Accounts/etc! <a href="/coming-soon.html">Learn more.</a></p>
+    </center>
+      <br>
+      <div class="card-group" id='chanlist'>
+      </div>
+      <br>
+      <div class="features-clean"></div>
+      <script src="assets/promos.common.js"></script>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <script src="https://code.highcharts.com/stock/highstock.js"></script>
+  <script src='/assets/main.common.js'></script>
+  <script src="/assets/fakecounts.common.js"></script>
+  <script type="text/javascript">
+  //search: https://yt-api-proxy.glitch.me/youtube/search/snippet/q/pewdiepie
+  function searchForChannels() {
+    var searchQuery = $("#search").val();
+    $.getJSON('https://api-details.livecounts.me/youtube/channels/search?q='+searchQuery, function (dd) {
+      if(dd.channels.length <= 0) {
+        return;
+      } else {
+        dd.channels.forEach((item) => {
+          if(item.cid) {
+            window.location.href = "https://livecounts.me/live-youtube-counters/"+item.cid;
+            return;
+          }
+        });
+
+      }
+    });
+  }
+  document.getElementById("onSearch").addEventListener("click", function() {
+    var searchQuery = $("#search").val();
+    // Trigger the button element with a click
+    if(searchQuery.length >= 3) {
+      searchForChannels();
+    }
+    //$("#fc").modal('hide');
+  });
+  document.getElementById("search").addEventListener("keyup", function(event) {
+  // Number 13 is the "Enter" key on the keyboard
+  if (event.keyCode === 13) {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    var searchQuery = $("#search").val();
+    // Trigger the button element with a click
+    if(searchQuery.length >= 3) {
+      searchForChannels();
+    }
+  }
+});
+
+  </script>
+</body>
+</html>

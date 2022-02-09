@@ -1,0 +1,54 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule live-youtube-counters/(.*) /live-yt-count.html?cid=$1 [L]
+RewriteRule search-youtube/ /search-yt.html [L]
+
+RewriteRule youtube-realistic/(.*) /live-yt-count.html?cid=$1&r=1 [L]
+RewriteRule youtube-realistic /live-yt-count.html?r=1 [L]
+RewriteRule api-sign-up/ /api-key.html [L]
+#RewriteRule stats/tiktok/(.*) /stats.html?cid=$1&type=tiktok [L]
+
+RewriteRule stats/youtube/(.*) /stats.html?cid=$1&type=youtube [L]
+
+RewriteRule live-tiktok-counters/(.*) /live-tiktok-count.html?cid=$1 [L]
+RewriteRule live-tiktok-counters /live-tiktok-count.html [L]
+
+RewriteRule live-twitter-counters/(.*) /live-twitter-count.html?cid=$1 [L]
+RewriteRule live-twitter-counters /live-twitter-count.html [L]
+
+RewriteRule live-minecraft-server-counters/(.*) /live-minecraft-server-count.html?cid=$1 [L]
+RewriteRule live-roblox-counters/(.*) /live-roblox-count.html?cid=$1 [L]
+RewriteRule live-yt-view-counters/(.*) /live-yt-view-count.html?cid=$1 [L]
+RewriteRule live-yt-view-counters /live-yt-view-count.html [L]
+
+RewriteRule live-fivem-server-counters/(.*) /live-fivem-server-counter.html?cid=$1 [L]
+
+RewriteRule live-fivem-server-counters/ /live-fivem-server-counter.html [L]
+RewriteRule live-embeds-fivem/(.*)$ /embed_fivem.html?cid=$1 [L]
+
+RewriteRule embeds-realistic/(.*)$ /embed_yt.html?cid=$1&r=1 [L]
+RewriteRule embeds-realistic /embed_yt.html?r=1 [L]
+RewriteRule live-embeds-yt/(.*)$ /embed_yt.html?cid=$1 [L]
+RewriteRule live-embeds-yt /embed_yt.html [L]
+#live-embeds-rbx
+RewriteRule live-embeds-rbx/(.*) /embed_rbx.html?cid=$1 [L]
+RewriteRule live-embeds-rbx /embed_rbx.html [L]
+RewriteRule live-embeds-tt/(.*) /embed_tiktok.html?cid=$1 [L]
+RewriteRule live-embeds-tt /embed_tt.html [L]
+RewriteRule live-embeds-twtr/(.*) /embed_twtr.html?cid=$1 [L]
+RewriteRule live-embeds-twtr /embed_twtr.html [L]
+RewriteRule live-embeds-mc/(.*) /embed_mc.html?cid=$1 [L]
+RewriteRule comparing /compare-sm.html [L]
+RewriteRule live-embeds-mc /embed_mc.html [L]
+
+
+RewriteRule live-embeds-yt-views/(.*) /embed_yt_views.html?cid=$1 [L]
+RewriteRule live-embeds-yt-views /embed_yt_views.html [L]
+
+# live-yt-view-count.html
+RewriteRule promote/yt /coming-soon.html [L]
+RewriteRule promotion_yt/(.*) /confirm-yt-promote.html [L]
+</IfModule>
